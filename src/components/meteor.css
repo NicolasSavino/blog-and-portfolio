@@ -1,0 +1,81 @@
+/* Set up the basic environment for our cosmic scene */
+body, #root, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* A deep, dark blue-purple gradient for the night sky, inspired by "Your Name" */
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  font-family: 'Inter', sans-serif; /* A clean, modern font */
+}
+
+/* Styling for the twinkling stars */
+.star {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #f0f8ff;
+  /* A subtle twinkle animation */
+  animation: twinkle 4s infinite alternate;
+}
+
+/* Keyframes for the star twinkling effect */
+@keyframes twinkle {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Styling for the meteors */
+.meteor {
+  position: absolute;
+  width: 2px; /* The core of the meteor */
+  height: 2px;
+  border-radius: 50%;
+  background-color: #fff;
+  /* The magical, multi-colored glow, key to the "Your Name" look */
+  box-shadow: 0 0 10px 2px rgba(132, 215, 255, 0.8),
+              0 0 20px 5px rgba(255, 188, 255, 0.6),
+              0 0 30px 10px rgba(126, 172, 255, 0.4);
+  /* The animation that makes them fall */
+  animation: meteor-fall linear infinite;
+  opacity: 0; /* They start invisible */
+}
+
+/* The meteor's tail, created with a pseudo-element */
+.meteor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px; /* Start the tail right after the meteor's core */
+  width: 200px; /* Length of the tail */
+  height: 1.5px;
+  /* A vibrant gradient for the tail, capturing the movie's aesthetic */
+  background: linear-gradient(to right,
+    rgba(132, 215, 255, 0.8),
+    rgba(255, 188, 255, 0.6),
+    rgba(126, 172, 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+/* Keyframes for the meteor falling animation */
+@keyframes meteor-fall {
+  0% {
+    opacity: 1;
+    /* Start position is offset to come from off-screen */
+    transform: translate(-50vw, -50vh);
+  }
+  100% {
+    opacity: 0;
+    /* End position, creating a diagonal streak */
+    transform: translate(50vw, 50vh);
+  }
+}

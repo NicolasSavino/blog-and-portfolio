@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+/* A subtle, dark scrollbar for the whole page if content ever overflows */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #111827; /* bg-gray-900 */
+}
+::-webkit-scrollbar-thumb {
+  background: #4f46e5; /* bg-indigo-600 */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1; /* bg-indigo-500 */
+}
+
