@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Background from './components/Background';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
+import Project from './components/Project';
 import BlogListPage from './components/BlogListPage';
 import BlogPostPage from './components/BlogPostPage';
 
