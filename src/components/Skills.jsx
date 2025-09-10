@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import { BrainCircuit, Music, GitBranch, PenSquare, Github } from 'lucide-react';
+import { BrainCircuit, Music, GitBranch, PenSquare, Github, Youtube } from 'lucide-react';
 
 // --- Data for the Technical Skills Section ---
 const technicalSkillsData = [
@@ -121,25 +121,32 @@ const PianoKeyIcon = () => (
     </svg>
 );
 
-
-// --- Special Sub-Component for Piano with Modal ---
-const PianoCard = ({ title, subtitle, detail, Icon }) => {
+// --- Special Sub-Component for Piano ---
+const PianoCard = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
     <>
-        <div className="group animate-[fade-in-up_0.5s_ease-out] p-8 rounded-xl bg-slate-900/50 backdrop-blur-md border border-slate-800/80 text-center max-w-lg mx-auto transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-900/50 hover:border-violet-400/50 overflow-hidden relative">
-            <div className="flex justify-center mb-4">
-                <Icon className="w-12 h-12 text-slate-500 group-hover:text-violet-400 transition-colors" />
+        <div className="group animate-[fade-in-up_0.5s_ease-out] rounded-xl bg-slate-900/50 backdrop-blur-md border border-slate-800/80 max-w-lg mx-auto transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-900/50 overflow-hidden relative fancy-card">
+            <div className="absolute -inset-px bg-gradient-to-r from-cyan-500 to-violet-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-[aurora-border_8s_ease-out_infinite]"></div>
+            <div className="relative bg-slate-900/80 rounded-lg p-8">
+                <div className="flex justify-center mb-6">
+                    <Music className="w-12 h-12 text-slate-500 group-hover:text-violet-400 transition-colors duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-200 group-hover:text-white mb-4 transition-colors">Piano</h3>
+                <div className="text-slate-300 text-left space-y-4 mb-6">
+                    <p>Piano is one of the things that combines logic and creativity for me. Replaying a classical piece not only satisfies my soul with the stroke of each key, but reminds me of the little moments we have in this life.</p>
+                    <p>The most current piece I'm working on is <em>Prelude in C by Bach.</em></p>
+                </div>
+                <a href="https://www.youtube.com/@nikolaivonchenkloff/playlists" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-violet-400 font-semibold hover:text-violet-300 transition-colors duration-300">
+                    <Youtube className="w-5 h-5" />
+                    <span>Listen to my Playlist</span>
+                </a>
+                
+                <button onClick={() => setIsModalOpen(true)} className="absolute top-3 right-3 text-slate-400 hover:text-white transition-all duration-300 p-2 rounded-full hover:bg-slate-800/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:scale-110" aria-label="Show project details">
+                    <PianoKeyIcon />
+                </button>
             </div>
-            <h3 className="text-2xl font-bold text-slate-200 group-hover:text-white mb-2 transition-colors">{title}</h3>
-            <p className="text-violet-300 text-lg">{subtitle}</p>
-            <div className="w-24 h-px bg-slate-700 group-hover:bg-violet-500 transition-colors mx-auto my-6"></div>
-            <p className="text-slate-400">{detail}</p>
-            
-            <button onClick={() => setIsModalOpen(true)} className="absolute top-3 right-3 text-slate-400 hover:text-white transition-all duration-300 p-2 rounded-full hover:bg-slate-800/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:scale-110" aria-label="Show project details">
-                <PianoKeyIcon />
-            </button>
         </div>
 
         {isModalOpen && (
@@ -148,10 +155,10 @@ const PianoCard = ({ title, subtitle, detail, Icon }) => {
                     <button onClick={() => setIsModalOpen(false)} className="absolute top-3 right-3 text-slate-400 hover:text-white transition-colors" aria-label="Close">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                     </button>
-                    <h3 className="text-2xl font-bold mb-2 text-cyan-300">Project Spotlight: Noted</h3>
+                    <h3 className="text-2xl font-bold mb-2 text-cyan-300">Project Spotlight: Chad Piano</h3>
                     <div className="w-20 h-px bg-slate-700 my-4"></div>
                     <p className="text-slate-300 mb-6">
-                       An AI-powered sheet music reader that utilizes computer vision to interpret and transcribe musical notation in real-time.
+                        An AI-powered sheet music reader that utilizes computer vision to interpret and transcribe musical notation in real-time.
                     </p>
                     <a href="https://github.com/NicolasSavino/onelittlelie" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-2 font-semibold text-white bg-slate-800/70 border border-slate-700 rounded-full transition-all duration-300 ease-in-out hover:scale-105 hover:bg-slate-700/90 hover:border-slate-600 hover:shadow-[0_0_15px_rgba(102,216,255,0.4)]">
                         <Github className="w-5 h-5" />
@@ -164,28 +171,35 @@ const PianoCard = ({ title, subtitle, detail, Icon }) => {
     );
 };
 
-
-// --- Special Sub-Component for Chess with Animation and Modal ---
-const ChessCard = ({ title, subtitle, detail, Icon }) => {
+// --- Special Sub-Component for Chess ---
+const ChessCard = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
     <>
-        <div className="group animate-[fade-in-up_0.5s_ease-out] p-8 rounded-xl bg-slate-900/50 backdrop-blur-md border border-slate-800/80 text-center max-w-lg mx-auto transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-900/50 hover:border-violet-400/50 overflow-hidden relative">
-            <div className="flex justify-center mb-4">
-                <Icon className="w-12 h-12 text-slate-500 group-hover:text-violet-400 transition-colors" />
-            </div>
-            <h3 className="text-2xl font-bold text-slate-200 group-hover:text-white mb-2 transition-colors">{title}</h3>
-            <p className="text-violet-300 text-lg">{subtitle}</p>
-            <div className="w-24 h-px bg-slate-700 group-hover:bg-violet-500 transition-colors mx-auto my-6"></div>
-            <p className="text-slate-400">{detail}</p>
-            
-            <button onClick={() => setIsModalOpen(true)} className="absolute top-3 right-3 text-slate-400 hover:text-white transition-all duration-300 p-2 rounded-full hover:bg-slate-800/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:scale-110" aria-label="Show project details">
-                <KingIcon />
-            </button>
+        <div className="group animate-[fade-in-up_0.5s_ease-out] p-8 rounded-xl bg-slate-900/50 backdrop-blur-md border border-slate-800/80 max-w-lg mx-auto transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-900/50 overflow-hidden relative fancy-card">
+            <div className="absolute -inset-px bg-gradient-to-r from-cyan-500 to-violet-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-[aurora-border_8s_ease-out_infinite]"></div>
+            <div className="relative bg-slate-900/80 rounded-lg p-8">
+                <div className="flex justify-center mb-4">
+                    <GitBranch className="w-12 h-12 text-slate-500 group-hover:text-violet-400 transition-colors duration-300 group-hover:scale-110 group-hover:-rotate-6" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-200 group-hover:text-white mb-4 transition-colors">Chess</h3>
+                <div className="text-slate-300 text-left space-y-4 mb-6">
+                    <p>I accidentally took with me a book on how to play Chess while going to Italy back in May. During a train ride to Lucca, I opened the book and read it cover to cover. From then on I've been obsessed with Chess.</p>
+                    <p>Part of me wants to beat this particular individual, but I'm not sure we'll see the day where we face each other.</p>
+                </div>
+                <div className="border-t border-slate-700 group-hover:border-violet-500/50 pt-4 mt-6 transition-colors">
+                    <h4 className="font-bold text-slate-400 group-hover:text-white transition-colors">My Favorite Openings:</h4>
+                    <p className="text-violet-300">Ruy Lopez (White) and King's Indian (Black)</p>
+                </div>
+                
+                <button onClick={() => setIsModalOpen(true)} className="absolute top-3 right-3 text-slate-400 hover:text-white transition-all duration-300 p-2 rounded-full hover:bg-slate-800/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:scale-110" aria-label="Show project details">
+                    <KingIcon />
+                </button>
 
-            <div className="absolute -bottom-2 -left-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-king-ride group-hover:animate-play">
-                 <CrownedKnightIcon/>
+                <div className="absolute -bottom-2 -left-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-king-ride group-hover:animate-play">
+                        <CrownedKnightIcon/>
+                </div>
             </div>
         </div>
 
@@ -211,7 +225,6 @@ const ChessCard = ({ title, subtitle, detail, Icon }) => {
     );
 };
 
-
 // --- Main Skills Section Component ---
 const Skills = () => {
   const [activeSkill, setActiveSkill] = useState("technicals");
@@ -220,24 +233,13 @@ const Skills = () => {
     { id: "technicals", label: "Programming", Icon: BrainCircuit },
     { id: "piano", label: "Piano", Icon: Music },
     { id: "chess", label: "Chess", Icon: GitBranch },
-    { id: "writing", label: "Writing", Icon: PenSquare, to: "/blog" },
   ];
 
   const renderContent = () => {
     switch (activeSkill) {
       case "technicals": return <TechnicalSkills />;
-      case "piano": return <PianoCard 
-        title="Noted"
-        subtitle="Python | OpenCV | TensorFlow"
-        detail="Favorite Piece: Liebeslied (Love's Sorrow): Kreisler (Rachmaninoff)"
-        Icon={Music}
-      />;
-      case "chess": return <ChessCard 
-        title="Chess Buddy"
-        subtitle="Python | Scikit-learn | Chess.com API"
-        detail="Favorite Opening: The Ruy López or King's Indian Defense"
-        Icon={GitBranch}
-      />;
+      case "piano": return <PianoCard />;
+      case "chess": return <ChessCard />;
       default: return null;
     }
   };
@@ -257,6 +259,11 @@ const Skills = () => {
             from { opacity: 0; }
             to { opacity: 1; }
           }
+          @keyframes aurora-border {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
           .animate-king-ride {
               animation: king-ride 5s linear infinite;
               animation-play-state: paused;
@@ -264,6 +271,22 @@ const Skills = () => {
           .animate-play:hover {
               animation-play-state: running;
           }
+          .fancy-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 0.8rem; /* slighly larger than the inner card's border-radius */
+            background: linear-gradient(90deg, #67e8f9, #a78bfa, #67e8f9);
+            background-size: 200% 200%;
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+            animation: aurora-border 8s linear infinite;
+            z-index: -1;
+          }
+          .fancy-card:hover::before {
+            opacity: 1;
+          }
+
       `}</style>
       <div className="container mx-auto max-w-7xl px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
@@ -305,4 +328,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
