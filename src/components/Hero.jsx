@@ -1,7 +1,6 @@
 import React from "react";
 import { ArrowDown } from "lucide-react";
 
-// --- New SVG Icon Components ---
 const AstronautIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-12 h-12">
     <circle cx="12" cy="12" r="10" />
@@ -59,7 +58,6 @@ const Hero = () => {
               <p className="text-base md:text-lg text-gray-400 opacity-0 animate-[fade-in-up_1s_ease-out_5.2s_forwards]">BS in Psychology | Minor in Computer Science</p>
             </div>
 
-            {/* --- NEW ICON LINKS --- */}
             <div className="flex justify-center items-center gap-12 pt-4 opacity-0 animate-[fade-in-up_1s_ease-out_5.5s_forwards]">
               <a 
                 href="/Nicolas F. Savino Resume.pdf"
@@ -93,4 +91,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

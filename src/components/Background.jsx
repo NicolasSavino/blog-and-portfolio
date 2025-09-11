@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-// --- SVG Icon Components for Constellations ---
 const GithubIcon = () => (
   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-white transition-all duration-300 ease-in-out hover:text-cyan-400 drop-shadow-[0_0_8px_rgba(102,216,255,0.8)] hover:scale-110">
     <title>GitHub</title>
@@ -29,7 +28,6 @@ const CoffeeIcon = () => (
     </svg>
 );
 
-// --- NEW DiamondIcon ---
 const DiamondIcon = () => (
     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-white transition-all duration-300 ease-in-out hover:text-cyan-400 drop-shadow-[0_0_8px_rgba(102,216,255,0.8)] hover:scale-110">
         <title>Forwards Fund</title>
@@ -46,7 +44,6 @@ const Background = () => {
     { name: 'LinkedIn', Icon: LinkedinIcon, href: 'https://www.linkedin.com/in/nicolas-f-savino-6887182a9/', position: { top: '20%', right: '15%' }, stars: [ { top: '0%', left: '80%' }, { top: '60%', left: '120%' }, { top: '100%', left: '50%' }, { top: '40%', left: '-30%' } ] },
     { name: 'YouTube', Icon: YoutubeIcon, href: 'https://www.youtube.com/@nikolaivonchenkloff', position: { bottom: '25%', left: '25%' }, stars: [ { top: '10%', left: '110%' }, { top: '90%', left: '90%' }, { top: '110%', left: '30%' }, { top: '20%', left: '-10%' } ] },
     { name: 'Overcoffee', Icon: CoffeeIcon, href: 'https://overcoffee.ai', position: { bottom: '20%', right: '20%' }, stars: [ { top: '-20%', left: '80%' }, { top: '50%', left: '120%' }, { top: '120%', left: '70%' }, { top: '40%', left: '-20%' } ] },
-    // --- UPDATED to use DiamondIcon ---
     { name: 'ForwardsFund', Icon: DiamondIcon, href: 'https://forwardsfund.com', position: { top: '5%', left: '50%', transform: 'translateX(-50%)' }, stars: [ { top: '80%', left: '80%' }, { top: '60%', left: '-20%' }, { top: '130%', left: '40%' } ] }
   ];
 
@@ -69,7 +66,6 @@ const Background = () => {
         @keyframes comet-streak { 0% { transform: translateX(-100%) translateY(-100%); opacity: 0; } 10% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateX(100vw) translateY(100vh); opacity: 0; } }
       `}</style>
 
-      {/* NON-CLICKABLE VISUALS LAYER */}
       <div className="fixed inset-0 -z-10 overflow-hidden bg-gray-900 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 to-gray-900"></div>
         <div className="absolute inset-0">
@@ -89,7 +85,6 @@ const Background = () => {
         </div>
       </div>
 
-      {/* CLICKABLE CONSTELLATIONS LAYER */}
       <div className="fixed inset-0 z-20 pointer-events-none">
         {constellations.map(({ name, Icon, href, position, stars }) => (
           <div key={name} className="absolute" style={position}>
@@ -107,4 +102,3 @@ const Background = () => {
 };
 
 export default Background;
-
